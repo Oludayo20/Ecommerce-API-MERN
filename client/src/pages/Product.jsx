@@ -31,9 +31,11 @@ const Product = () => {
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
-              <FilterColor color="black" />
-              <FilterColor color="darkblue" />
-              <FilterColor color="gray" />
+              <FilterColor color="Black" />
+              <FilterColor color="Red" />
+              <FilterColor color="Dark" />
+              <FilterColor color="White" />
+              <FilterColor color="Blue" />
             </Filter>
             <Filter>
               <FilterTitle>Size</FilterTitle>

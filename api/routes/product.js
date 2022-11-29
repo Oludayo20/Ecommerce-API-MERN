@@ -66,7 +66,7 @@ router.get('/find/:id', async (req, res) => {
 
 // // ------------ GET ALL PRODUCT ----------------- //
 
-router.get('/', verifyTokenAndAdmin, async (req, res) => {
+router.get('/', async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
   try {
@@ -82,7 +82,7 @@ router.get('/', verifyTokenAndAdmin, async (req, res) => {
     } else {
       products = await Product.find();
     }
-    res.status(500).json(products);
+    res.status(200).json(products);
   } catch (error) {
     res.status(500).json(error);
   }

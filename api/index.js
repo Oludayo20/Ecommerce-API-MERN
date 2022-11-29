@@ -8,6 +8,9 @@ const productRoute = require('./routes/product');
 const cartRoute = require('./routes/cart');
 const orderRoute = require('./routes/order');
 const paymentRoute = require('./routes/stripe');
+var cors = require('cors');
+
+app.use(cors()); // Use this after the variable declaration
 
 dotenv.config();
 
@@ -26,8 +29,8 @@ app.use('/api/v1/carts', cartRoute);
 app.use('/api/v1/orders', orderRoute);
 app.use('/api/v1/payment', paymentRoute);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
-  console.log('Backend Server is running');
+  console.log(`Backend Server is running at port: ${port}`);
 });
