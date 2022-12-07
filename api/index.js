@@ -27,7 +27,7 @@ app.use('/api/v1/auth', authRoute);
 app.use('/api/v1/products', productRoute);
 app.use('/api/v1/carts', cartRoute);
 app.use('/api/v1/orders', orderRoute);
-app.use('/api/v1/payment', paymentRoute);
+app.use('/api/v1/checkout', paymentRoute);
 
 const port = process.env.PORT || 5000;
 

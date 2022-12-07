@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { login } from '../redux/apiCalls';
 import { mobile } from '../responsive';
+import { useDispatch } from 'react-redux';
 
 const Login = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const dispatch = useDispatch();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    login(dispatch, { username, password });
+  };
+
   return (
     <Container>
       <Wrapper>
         <Title>SIGN IN</Title>
         <Form>
-          <Input placeholder="username" />
-          <Input placeholder="password" />
+          <Input
+            placeholder="username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <Input
+            placeholder="password"
+            type="password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
 
-          <Button>LOGIN</Button>
+          <Button onClick={handleLogin}>LOGIN</Button>
           <Link>CAN'T REMEMBER THE PASSWORD?</Link>
           <Link>DON'T HAVE AN ACCOUNT?</Link>
         </Form>
