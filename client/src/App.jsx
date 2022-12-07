@@ -1,9 +1,9 @@
-import Cart from './pages/Cart';
-import Home from './pages/Home';
-import Login from './pages/Login';
 import Product from './pages/Product';
+import Home from './pages/Home';
 import ProductList from './pages/ProductList';
 import Register from './pages/Register';
+import Login from './pages/Login';
+import Cart from './pages/Cart';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,9 +11,10 @@ import {
   Redirect
 } from 'react-router-dom';
 import Success from './pages/Success';
+import { useSelector } from 'react-redux';
 
-function App() {
-  const user = false;
+const App = () => {
+  const user = useSelector((state) => state.user.currentUser);
   return (
     <Router>
       <Switch>
@@ -39,6 +40,6 @@ function App() {
       </Switch>
     </Router>
   );
-}
+};
 
 export default App;

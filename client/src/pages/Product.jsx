@@ -28,7 +28,7 @@ const Product = () => {
         const res = await publicRequest.get('/products/find/' + id);
         setProduct(res.data);
       } catch (error) {
-        console.log(error);
+        console.log(error.message);
       }
     };
     getProduct();

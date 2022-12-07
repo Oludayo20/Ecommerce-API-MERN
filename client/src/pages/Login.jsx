@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { login } from '../redux/apiCalls';
 import { mobile } from '../responsive';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const dispatch = useDispatch();
+  const { isFetching, error } = useSelector((state) => state.user);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -30,7 +31,10 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <Button onClick={handleLogin}>LOGIN</Button>
+          <Button onClick={handleLogin} disabled={isFetching}>
+            LOGIN
+          </Button>
+          {error && <Error>Something went wrong</Error>}
           <Link>CAN'T REMEMBER THE PASSWORD?</Link>
           <Link>DON'T HAVE AN ACCOUNT?</Link>
         </Form>
