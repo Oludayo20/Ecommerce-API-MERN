@@ -1,13 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/apiCalls';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
+  const dispatch = useDispatch();
+
+  const handleLogin = (e) => {
     e.preventDefault();
-    //
+    login(dispatch, { username, password });
   };
   return (
     <div>
